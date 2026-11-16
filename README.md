@@ -7,10 +7,21 @@ frameworks, no runtime dependencies.
 
 ## How this was made
 
-This project was built end-to-end by the **[Pi coding agent](https://github.com/earendil-works/pi-coding-agent)**
-pairing with a **locally hosted `dgx-deepseek-v4.1`** model (served through
-LiteLLM on a DGX box) — planning the structure, writing the TypeScript,
-compiling it, and running the headless tests without leaving the terminal.
+Built end-to-end by the **[Pi coding agent](https://github.com/earendil-works/pi-coding-agent)**
+paired with a **locally hosted open-weight model** — no cloud AI. The agent planned
+the module layout, wrote the TypeScript, compiled it, ran the headless tests, and
+pushed the repo.
+
+| | |
+| --- | --- |
+| Agent | Pi coding agent (`PI_CODING_AGENT=true`) |
+| Model alias | `dgx-deepseek-v4.1` |
+| Base model | [`deepseek-ai/DeepSeek-V4.1-Flash`](https://huggingface.co/deepseek-ai) |
+| Serving | vLLM, tensor-parallel **TP=3** across **3× NVIDIA DGX Spark** (GB10 Grace Blackwell, aarch64) |
+| Access | LiteLLM gateway (OpenAI-compatible `/v1`), self-hosted so usage is logged at **$0** |
+
+> In short: everything ran on a small local DGX cluster, and the model was reached
+> through a unified LiteLLM proxy rather than any hosted API.
 
 ## Features
 
