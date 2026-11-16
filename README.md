@@ -3,7 +3,7 @@
 A classic Snake game built with **TypeScript** and the HTML5 Canvas — no
 frameworks, no runtime dependencies.
 
-![snake](https://img.shields.io/badge/TypeScript-7.x-3178c6) ![snake](https://img.shields.io/badge/deps-0-brightgreen)
+![snake](https://img.shields.io/badge/TypeScript-7.x-3178c6) ![snake](https://img.shields.io/badge/deps-0-brightgreen) ![license](https://img.shields.io/badge/license-MIT-blue)
 
 ## How this was made
 
@@ -107,3 +107,7 @@ Game logic is deliberately decoupled from rendering (`Renderer`) and input
 | Start   | Space / Enter / tap        |
 | Pause   | Space / Enter / P          |
 | Restart | R (or Space when game over)|
+
+## License
+
+[MIT](LICENSE) © 2026 Weili
