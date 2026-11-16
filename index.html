@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Snake · TypeScript</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #060911;
+        --panel: #0b1020;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --accent: #38bdf8;
+        --green: #22c55e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        padding: 1.5rem;
+        background:
+          radial-gradient(1200px 600px at 50% -10%, #10203d 0%, transparent 60%),
+          var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        background: linear-gradient(180deg, #e2e8f0, #64748b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .scores {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 0.5rem;
+        color: var(--muted);
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .scores strong {
+        display: block;
+        margin-top: 0.15rem;
+        font-size: 1.35rem;
+        color: var(--text);
+        letter-spacing: 0;
+      }
+
+      .board-wrap {
+        position: relative;
+        padding: 10px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, #141b30, #0a0f1d);
+        box-shadow:
+          0 0 0 1px rgba(148, 163, 184, 0.12),
+          0 24px 60px -24px rgba(56, 189, 248, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+
+      canvas {
+        display: block;
+        border-radius: 10px;
+        touch-action: none;
+      }
+
+      footer {
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-align: center;
+        line-height: 1.7;
+      }
+
+      kbd {
+        padding: 0.1rem 0.45rem;
+        border-radius: 6px;
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        background: rgba(148, 163, 184, 0.1);
+        font-family: inherit;
+        font-size: 0.75rem;
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Snake</h1>
+      <div class="scores">
+        <span>Score<strong id="score">0</strong></span>
+        <span>Best<strong id="high-score">0</strong></span>
+      </div>
+    </header>
+
+    <div class="board-wrap">
+      <canvas id="board" data-state="ready" aria-label="Snake game board"></canvas>
+    </div>
+
+    <footer>
+      <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to move
+      &middot; <kbd>Space</kbd> start/pause &middot; <kbd>P</kbd> pause &middot; <kbd>R</kbd> restart
+      <br />
+      On mobile: swipe to steer, tap to start.
+    </footer>
+
+    <script type="module" src="./dist/main.js"></script>
+  </body>
+</html>

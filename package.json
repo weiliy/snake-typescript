@@ -1,0 +1,23 @@
+{
+  "name": "snake-typescript",
+  "version": "1.0.0",
+  "description": "A classic Snake game written in TypeScript",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "npm run build && node test/logic.test.mjs",
+    "start": "node server.mjs",
+    "dev": "npm run build && node server.mjs"
+  },
+  "keywords": [
+    "game",
+    "snake",
+    "typescript",
+    "canvas"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
