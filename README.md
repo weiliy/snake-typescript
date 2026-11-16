@@ -23,6 +23,18 @@ pushed the repo.
 > In short: everything ran on a small local DGX cluster, and the model was reached
 > through a unified LiteLLM proxy rather than any hosted API.
 
+## Screenshots
+
+![Gameplay](screenshots/gameplay.png)
+
+| Start screen | Game over |
+| --- | --- |
+| ![Start screen](screenshots/start.png) | ![Game over](screenshots/gameover.png) |
+
+These are captured from the real, rendered game with headless Chromium via
+`npm run screenshots` (Playwright) — not mockups. The page accepts
+`?demo=playing` / `?demo=gameover` to freeze a deterministic scene for capture.
+
 ## Features
 
 - Grid-based snake with smooth, rounded rendering and animated food
@@ -60,6 +72,7 @@ automatically tries the next free port and prints it. Set an explicit port with
 | `npm run build` | Type-check and compile `src/` to `dist/`     |
 | `npm run watch` | Recompile on change                          |
 | `npm test`      | Build, then run the headless logic tests     |
+| `npm run screenshots` | Build, then capture the README screenshots |
 | `npm start`     | Serve the built game on port 5173            |
 | `npm run dev`   | Build once, then serve                       |
 
@@ -74,9 +87,13 @@ src/
   game.ts           Rules, scoring, game state machine, loop ticking
   renderer.ts       All canvas drawing (board, snake, food, overlays)
   input.ts          Keyboard + touch input handling
+  demo.ts           Deterministic scenes for screenshots (?demo=...)
   main.ts           Wires everything together and runs the rAF loop
 test/
   logic.test.mjs    Headless tests for the game rules
+scripts/
+  screenshots.mjs   Playwright capture of the README images
+screenshots/        Generated PNGs used by this README
 ```
 
 Game logic is deliberately decoupled from rendering (`Renderer`) and input

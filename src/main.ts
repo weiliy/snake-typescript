@@ -34,13 +34,23 @@ new InputManager(canvas, {
   onRestart: () => game.restart(),
 });
 
+// Deterministic scenes for documentation screenshots: open with ?demo=playing
+// or ?demo=gameover. The simulation is frozen so the frame stays stable.
+let frozen = false;
+const demo = new URLSearchParams(window.location.search).get("demo");
+if (demo === "playing" || demo === "gameover") {
+  const { applyDemoScene } = await import("./demo.js");
+  applyDemoScene(game, demo);
+  frozen = true;
+}
+
 let last = performance.now();
 
 function frame(now: number): void {
   const dt = (now - last) / 1000;
   last = now;
 
-  game.update(dt);
+  if (!frozen) game.update(dt);
   renderer.draw(now);
 
   requestAnimationFrame(frame);
