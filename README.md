@@ -5,6 +5,13 @@ frameworks, no runtime dependencies.
 
 ![snake](https://img.shields.io/badge/TypeScript-7.x-3178c6) ![snake](https://img.shields.io/badge/deps-0-brightgreen)
 
+## How this was made
+
+This project was built end-to-end by the **[Pi coding agent](https://github.com/earendil-works/pi-coding-agent)**
+pairing with a **locally hosted `dgx-deepseek-v4.1`** model (served through
+LiteLLM on a DGX box) — planning the structure, writing the TypeScript,
+compiling it, and running the headless tests without leaving the terminal.
+
 ## Features
 
 - Grid-based snake with smooth, rounded rendering and animated food
